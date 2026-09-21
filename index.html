@@ -27,15 +27,65 @@ content="Alpha Group Nutrition, nutrition Kenya, healthy living, nutritional pro
 }
 
 :root{
-    --green:#176b3a;
-    --dark-green:#0b4225;
-    --light-green:#eaf7ef;
+    /* Alpha Group Nutrition 4-color brand system */
+    --green:#20a85a;          /* PRODUCT ICONS */
+    --dark-green:#126b3a;
+    --light-green:#eafaf0;
+    --purple:#7b3fc6;         /* PRODUCT DETAILS / DESCRIPTIONS */
+    --light-purple:#f3eaff;
+    --orange:#f28c28;         /* COMPANY / CONTACT REFERENCES */
+    --light-orange:#fff1e3;
+    --blue:#1769e0;           /* BRAND REFERENCES */
+    --light-blue:#eaf2ff;
     --gold:#d4a62a;
     --white:#ffffff;
     --black:#111;
     --gray:#666;
     --light:#f7faf8;
     --shadow:0 15px 40px rgba(0,0,0,.10);
+}
+
+/* =========================
+   BRAND COLOR LANGUAGE
+   Green  = product icons
+   Purple = product details/descriptions
+   Orange = company/contact references
+   Blue   = brand references
+========================= */
+
+.brand-ref{
+    color:var(--blue) !important;
+    font-weight:700;
+}
+
+.company-ref{
+    color:var(--orange) !important;
+    font-weight:700;
+}
+
+.product-detail{
+    color:var(--purple) !important;
+}
+
+.product-icon{
+    color:var(--green) !important;
+    background:var(--light-green) !important;
+    border-color:rgba(32,168,90,.22) !important;
+}
+
+.brand-bg{
+    background:var(--blue) !important;
+    color:#fff !important;
+}
+
+.company-bg{
+    background:var(--orange) !important;
+    color:#fff !important;
+}
+
+.product-bg{
+    background:var(--green) !important;
+    color:#fff !important;
 }
 
 body{
@@ -94,7 +144,7 @@ header{
 .logo-icon{
     width:45px;
     height:45px;
-    background:var(--green);
+    background:var(--blue);
     color:white;
     border-radius:50%;
     display:flex;
@@ -105,7 +155,7 @@ header{
 }
 
 .logo h2{
-    color:var(--dark-green);
+    color:var(--blue);
     font-size:20px;
 }
 
@@ -129,7 +179,7 @@ header{
 }
 
 .nav-links a:hover{
-    color:var(--green);
+    color:var(--blue);
 }
 
 .nav-btn{
@@ -391,6 +441,8 @@ section{
     margin:0 auto 20px;
     border-radius:50%;
     background:var(--light-green);
+    color:var(--green);
+    border:1px solid rgba(32,168,90,.20);
     display:flex;
     align-items:center;
     justify-content:center;
@@ -496,7 +548,7 @@ section{
 }
 
 .product-info p{
-    color:var(--gray);
+    color:var(--purple);
     font-size:14px;
     margin-bottom:18px;
 }
@@ -1064,6 +1116,99 @@ footer li{
     }
 }
 
+
+/* =========================
+   REQUESTED COLOR OVERRIDES
+========================= */
+
+/* Product icons = GREEN */
+.benefit-icon,
+.product-icon,
+.product-card .product-tag{
+    color:var(--green);
+}
+.benefit-icon{
+    background:var(--light-green);
+}
+
+/* Product details/descriptions = PURPLE */
+.product-info p,
+.product-card .product-description,
+.product-detail{
+    color:var(--purple) !important;
+}
+.product-info p::selection,
+.product-card .product-description::selection{
+    background:var(--light-purple);
+}
+
+/* Company/contact references = ORANGE */
+.company-ref,
+.contact .contact-item a,
+.contact .contact-item strong,
+.contact .contact-item span,
+.contact-card .contact-company{
+    color:var(--orange) !important;
+}
+
+/* Brand references = BLUE */
+.brand-ref,
+.logo h2,
+.brand-name,
+.about-text .brand-name{
+    color:var(--blue) !important;
+}
+
+/* Make buttons follow their meaning */
+.nav-btn,
+.contact .submit-btn{
+    background:var(--orange) !important;
+}
+.nav-btn:hover,
+.contact .submit-btn:hover{
+    background:#d96f0d !important;
+}
+
+.btn-primary{
+    background:var(--blue) !important;
+    color:#fff !important;
+}
+.btn-outline:hover{
+    color:var(--blue) !important;
+}
+.product-btn,
+.filter-btn{
+    background:var(--green) !important;
+}
+.product-btn:hover,
+.filter-btn:hover{
+    background:var(--dark-green) !important;
+}
+
+/* Product cards get a subtle purple detail accent */
+.product-card{
+    border-top:4px solid var(--purple);
+}
+.product-card .product-tag{
+    background:var(--light-green);
+}
+.product-card .product-benefits li{
+    color:#5f3b82;
+}
+
+/* Contact area gets the company orange identity */
+.contact{
+    background:var(--light-orange);
+}
+.contact-card h2{
+    color:var(--orange) !important;
+}
+
+/* Brand identity in headings */
+.section-heading small{
+    color:var(--blue);
+}
+
 </style>
 </head>
 
@@ -1082,8 +1227,8 @@ footer li{
 <div class="logo-icon">A</div>
 
 <div>
-<h2>Alpha Group</h2>
-<span>NUTRITION & WELLNESS</span>
+<h2 class="brand-ref">Alpha Group</h2>
+<span class="brand-ref">NUTRITION & WELLNESS</span>
 </div>
 
 </a>
@@ -1095,11 +1240,11 @@ footer li{
 <li><a href="#benefits">Benefits</a></li>
 <li><a href="#products">Products</a></li>
 <li><a href="#faq">FAQ</a></li>
-<li><a href="#contact">Contact</a></li>
+<li><a href="#contact"><span class="company-ref">Contact</span></a></li>
 
 </ul>
 
-<a class="nav-btn" href="tel:+254714108368">
+<a class="nav-btn company-ref" href="tel:+254714108368" class="company-ref">
 Call Us
 </a>
 
@@ -1144,7 +1289,7 @@ Explore Products
 </a>
 
 <a href="https://wa.me/254714108368" class="btn btn-outline">
-Talk to Us on WhatsApp
+<span class="company-ref">Talk to Us on WhatsApp</span>
 </a>
 
 </div>
@@ -1201,7 +1346,7 @@ alt="Healthy nutrition">
 
 <div class="about-text">
 
-<small>ABOUT ALPHA GROUP NUTRITION</small>
+<small class="brand-ref">ABOUT ALPHA GROUP NUTRITION</small>
 
 <h2>Building a Healthier Generation</h2>
 
@@ -1261,7 +1406,7 @@ form an important part of a healthy lifestyle.
 
 <div class="benefit">
 
-<div class="benefit-icon">💚</div>
+<div class="benefit-icon product-icon">💚</div>
 
 <h3>Healthy Skin</h3>
 
@@ -1275,7 +1420,7 @@ and overall wellbeing.
 
 <div class="benefit">
 
-<div class="benefit-icon">⚡</div>
+<div class="benefit-icon product-icon">⚡</div>
 
 <h3>Energy</h3>
 
@@ -1289,7 +1434,7 @@ normal energy metabolism.
 
 <div class="benefit">
 
-<div class="benefit-icon">🛡️</div>
+<div class="benefit-icon product-icon">🛡️</div>
 
 <h3>Body Support</h3>
 
@@ -1303,7 +1448,7 @@ and body functions.
 
 <div class="benefit">
 
-<div class="benefit-icon">🧠</div>
+<div class="benefit-icon product-icon">🧠</div>
 
 <h3>Mind & Focus</h3>
 
@@ -1331,7 +1476,7 @@ for normal brain function.
 
 <div class="section-heading">
 
-<small>OUR WELLNESS RANGE</small>
+<small class="brand-ref">OUR WELLNESS RANGE</small>
 
 <h2>Nutrition Products</h2>
 
@@ -1380,7 +1525,7 @@ alt="AG Fiberee botanical fibre beverage">
 
 <h3>AG Fiberee</h3>
 
-<p>
+<p class="product-detail">
 A botanical beverage mix of tropical fruit, white peach and
 psyllium husk, formulated to support digestive and weight wellness.
 </p>
@@ -1426,7 +1571,7 @@ alt="AG Coffee Butterscotch Premix Coffee">
 
 <h3>AG Coffee Butterscotch</h3>
 
-<p>
+<p class="product-detail">
 A rich butterscotch premix coffee, 66 kcal per serving, made
 for a smooth and energizing daily brew.
 </p>
@@ -1472,7 +1617,7 @@ alt="AG Choco+ chocolate beverage mix">
 
 <h3>AG Choco+</h3>
 
-<p>
+<p class="product-detail">
 A chocolate beverage mix with malt extract, Nigella Sativa
 (Habbatus Sauda) extract and date extract for daily wellness.
 </p>
@@ -1517,7 +1662,7 @@ alt="AG Leanz mixed berries beverage">
 
 <h3>AG Leanz</h3>
 
-<p>
+<p class="product-detail">
 A botanical beverage mix of berry juice powder, Sicilian red
 orange, purple tea extract, mulberry leaves and inulin.
 </p>
@@ -1563,7 +1708,7 @@ alt="AG Cera phytoceramide beverage mix">
 
 <h3>AG Cera</h3>
 
-<p>
+<p class="product-detail">
 A mix of white peach, phytoceramide, olive fruit, gymnema,
 pomegranate and mixed berries for skin and wellness support.
 </p>
@@ -1609,7 +1754,7 @@ alt="AG Broc broccoli seed extract beverage">
 
 <h3>AG Broc</h3>
 
-<p>
+<p class="product-detail">
 A botanical beverage mix of mixed fruit, broccoli seed extract,
 elderberry extract, yeast beta glucan and strawberry.
 </p>
@@ -2078,7 +2223,7 @@ with nutrition."
 <li><a href="#home">Home</a></li>
 <li><a href="#about">About</a></li>
 <li><a href="#products">Products</a></li>
-<li><a href="#contact">Contact</a></li>
+<li><a href="#contact"><span class="company-ref">Contact</span></a></li>
 
 </ul>
 
